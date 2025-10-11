@@ -20,5 +20,5 @@ It allows users to create, open, edit, and save text files using a menu-driven i
 1. Open Command Prompt in the project folder
 2. Compile the program:
    
-   javac CommandTextEditor.java
-   java CommandTextEditor
+   - javac CommandTextEditor.java
+   - java CommandTextEditor
