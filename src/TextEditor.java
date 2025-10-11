@@ -25,20 +25,33 @@ public class TextEditor extends EditorFeatures{
 	@Override
 	public void openFile(String fileName) {
 		
-		  currentFileName = fileName;
-	        content = new StringBuilder();
-	        
-	     // for reading the file from PC
-	        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) { 
-	            String line = reader.readLine();
-	            while ((line) != null) {
-	                content.append(line).append("\n");
-	            }
-	            System.out.println("\nFile opened successfully. Content:\n");
-	            System.out.println(content);
-	        } catch (IOException e) {
-	            System.out.println("Error opening file: " + e.getMessage());
+		currentFileName = fileName;
+	    content = new StringBuilder();
+
+	    File file = new File(fileName);
+	    if (!file.exists()) {
+	        System.out.println("File not found: " + fileName);
+	        return;
+	    }
+
+	    // Prevent reading files larger than 10 MB
+	    if (file.length() > 10 * 1024 * 1024) {
+	        System.out.println("Error: File too large to open (limit: 10MB).");
+	        return;
+	    }
+
+	    try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            content.append(line).append("\n");
 	        }
+	        System.out.println("\nFile opened successfully. Content:\n");
+	        System.out.println(content);
+	    } catch (IOException e) {
+	        System.out.println("Error opening file: " + e.getMessage());
+	    } catch (OutOfMemoryError e) {
+	        System.out.println("Error: File too large to load into memory.");
+	    }
 		
 		
 	}
