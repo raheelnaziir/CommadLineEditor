@@ -109,8 +109,8 @@ public class TextEditor extends EditorFeatures{
 	@Override
 	public void saveFile(String fileName, String contentToSave) { 
 			
-		// for saving the file into the local system
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) { 
+			// To save file into the system
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write(contentToSave);
             System.out.println("File saved successfully as " + fileName);
         } catch (IOException e) {
@@ -118,7 +118,7 @@ public class TextEditor extends EditorFeatures{
         }
 	}
 	
-	 // Getter for content (Encapsulation)
+	 // Getter for content 
     public String getContent() {
         return content.toString();
     }
@@ -129,5 +129,6 @@ public class TextEditor extends EditorFeatures{
         return "TextEditor handling file: " + currentFileName;
     }
 	
+    
 
 }
