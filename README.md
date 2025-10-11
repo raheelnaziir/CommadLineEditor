@@ -1,39 +1,24 @@
-Command-Line Text Editor (Module 1)
+# Command-Line Text Editor (Module 1)
 
-A simple Java-based Text Editor that runs in the command line.
+A simple Java-based text editor that runs in the command line.  
 It allows users to create, open, edit, and save text files using a menu-driven interface.
 
-Features
+## Features
+- Create new text files
+- Open and read existing files
+- Edit text (append, delete, replace)
+- Save files to a specific folder
+- Exit with or without saving
 
-Create new text files
+## Technologies Used
+- Java 
+- Scanner class for user input
+- File handling and exception handling
+- Object-Oriented Programming (OOP) concepts
 
-Open and read existing files
-
-Edit text (append, delete, replace)
-
-Save files to a specific folder
-
-Exit with or without saving
-
-Technologies Used
-
-Java (JDK 8 or above)
-
-Scanner Class for user input
-
-File handling and exception handling
-
-Object-Oriented Programming (OOP) concepts
-
-How to Run
-
-Open Command Prompt in the project folder
-
-Compile the program:
-
-javac CommandLineTextEditor.java
-
-
-Run it:
-
-java CommandLineTextEditor
+## How to Run
+1. Open Command Prompt in the project folder
+2. Compile the program:
+   
+   javac CommandTextEditor.java
+   java CommandTextEditor
