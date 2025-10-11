@@ -89,6 +89,7 @@ public class TextEditor extends EditorFeatures{
 	                    System.out.println("Invalid option! Try again.");
 	            }
 	        } while (choice != 5);
+	        
 		
 	}
 
