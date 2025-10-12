@@ -65,13 +65,16 @@ public class TextEditor extends EditorFeatures{
 	        }
 
 	        int choice;
+	        
+	        System.out.println("\n--- Edit Menu ---");
+            System.out.println("1. Append Text");
+            System.out.println("2. Delete All Text");
+            System.out.println("3. Replace Entire Text");
+            System.out.println("4. Show Current Content");
+            System.out.println("5. Exit Edit Mode");
+            
 	        do {
-	            System.out.println("\n--- Edit Menu ---");
-	            System.out.println("1. Append Text");
-	            System.out.println("2. Delete All Text");
-	            System.out.println("3. Replace Entire Text");
-	            System.out.println("4. Show Current Content");
-	            System.out.println("5. Exit Edit Mode");
+	            
 	            System.out.print("Enter your choice: ");
 	            choice = input.nextInt();
 	            input.nextLine(); // consume newline
