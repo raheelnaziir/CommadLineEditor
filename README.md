@@ -16,9 +16,3 @@ It allows users to create, open, edit, and save text files using a menu-driven i
 - File handling and exception handling
 - Object-Oriented Programming (OOP) concepts
 
-## How to Run
-1. Open Command Prompt in the project folder
-2. Compile the program:
-   
-   - javac CommandTextEditor.java
-   - java CommandTextEditor
