@@ -1,30 +1,33 @@
 import java.util.Scanner;
 
 public class CommandLineEditor {
-	
-	public static void clearScreen() {
-	    System.out.print("\033[H\033[2J");
-	    System.out.flush();
-	}
 
-	public static void main(String[] args) {
-		
-		
-		Scanner input = new Scanner(System.in);
-		TextEditor textEditor = new TextEditor();
-		
-		int choice;
-		
-		//System.out.println("\n==== Command-Line Text Editor ====");
-		System.out.println("");
-        System.out.println("1. Create New File    2. Open Existing File  3. Edit Current File  4. Save Current File  5. Delete File    6. Exit");
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        TextEditor textEditor = new TextEditor();
+
+        int choice = 0;
 
         do {
-			
-            System.out.print("\nEnter your choice: ");
-            choice = input.nextInt();
-            input.nextLine(); // consume newline
+            clearScreen(); // clear console
+            System.out.println("");
+            System.out.println("Current File: " +
+                    (textEditor.getCurrentFileName() != null ? textEditor.getCurrentFileName() : "None"));
+            System.out.println("1. Create New File    2. Open Existing File  3. Edit Current File  4. Save Current File  5. Delete File    6. Exit");
 
+            System.out.print("\nEnter your choice: ");
+            try {
+                choice = Integer.parseInt(input.nextLine()); // safely parse input
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Please enter a number.");
+                continue; // go to next loop iteration
+            }
 
             switch (choice) {
                 case 1:
@@ -70,11 +73,11 @@ public class CommandLineEditor {
                     System.out.println("Invalid option! Try again.");
             }
 
+            System.out.println("\nPress Enter to continue...");
+            input.nextLine(); // pause for user to read messages
 
-        } while (choice != 5);
+        } while (choice != 6); // exit on option 6
 
-		input.close();
-
-	}
-
+        input.close();
+    }
 }

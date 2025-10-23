@@ -146,6 +146,10 @@ public class TextEditor extends EditorFeatures{
         }
     }
 
+    // Getter for current file name
+    public String getCurrentFileName() {
+        return currentFileName;
+    }
 
     // Getter for content
     public String getContent() {
