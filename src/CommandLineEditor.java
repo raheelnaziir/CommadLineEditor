@@ -17,9 +17,9 @@ public class CommandLineEditor {
 		
 		//System.out.println("\n==== Command-Line Text Editor ====");
 		System.out.println("");
-        System.out.println("1. Create New File    2. Open Existing File  3. Edit Current File  4. Save Current File  5. Exit");
-		
-		do {
+        System.out.println("1. Create New File    2. Open Existing File  3. Edit Current File  4. Save Current File  5. Delete File    6. Exit");
+
+        do {
 			
             System.out.print("\nEnter your choice: ");
             choice = input.nextInt();
