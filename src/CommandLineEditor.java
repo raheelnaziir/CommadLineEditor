@@ -24,48 +24,54 @@ public class CommandLineEditor {
             System.out.print("\nEnter your choice: ");
             choice = input.nextInt();
             input.nextLine(); // consume newline
-            
-			 
+
+
             switch (choice) {
-            case 1:
-                System.out.print("Enter new file name: ");
-                String newFile = input.nextLine();
-                textEditor.createNewFile(newFile);
-                break;
-                
-            case 2:
-                System.out.print("Enter file name to open: ");
-                String openFile = input.nextLine();
-                textEditor.openFile(openFile);
-                break;
-                
-            case 3:
-                textEditor.editFile("");
-                break;
-                
-            case 4:
-                System.out.print("Enter file name to save: ");
-                String saveName = input.nextLine();
-                textEditor.saveFile(saveName, textEditor.getContent());
-                break;
-                
-            case 5:
-                System.out.print("Do you want to save before exiting? (yes/no): ");
-                String saveChoice = input.nextLine();
-                
-                if (saveChoice.equalsIgnoreCase("yes")) {
+                case 1:
+                    System.out.print("Enter new file name: ");
+                    String newFile = input.nextLine();
+                    textEditor.createNewFile(newFile);
+                    break;
+
+                case 2:
+                    System.out.print("Enter file name to open: ");
+                    String openFile = input.nextLine();
+                    textEditor.openFile(openFile);
+                    break;
+
+                case 3:
+                    textEditor.editFile("");
+                    break;
+
+                case 4:
                     System.out.print("Enter file name to save: ");
-                    String saveFile = input.nextLine();
-                    textEditor.saveFile(saveFile, textEditor.getContent());
-                }
-                System.out.println("Exiting program...");
-                break;
-                
-            default:
-                System.out.println("Invalid option! Try again.");
-        }
-            
-    } while (choice != 5);
+                    String saveName = input.nextLine();
+                    textEditor.saveFile(saveName, textEditor.getContent());
+                    break;
+
+                case 5:
+                    System.out.print("Enter file name to delete: ");
+                    String deleteFileName = input.nextLine();
+                    textEditor.deleteFile(deleteFileName);
+                    break;
+
+                case 6:
+                    System.out.print("Do you want to save before exiting? (yes/no): ");
+                    String saveChoice = input.nextLine();
+                    if (saveChoice.equalsIgnoreCase("yes")) {
+                        System.out.print("Enter file name to save: ");
+                        String saveFile = input.nextLine();
+                        textEditor.saveFile(saveFile, textEditor.getContent());
+                    }
+                    System.out.println("Exiting program...");
+                    break;
+
+                default:
+                    System.out.println("Invalid option! Try again.");
+            }
+
+
+        } while (choice != 5);
 
 		input.close();
 
