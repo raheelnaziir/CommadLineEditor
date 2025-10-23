@@ -128,8 +128,26 @@ public class TextEditor extends EditorFeatures{
             System.out.println("File not found: " + fileName);
             return;
         }
+        System.out.print("Are you sure you want to delete " + fileName + "? (yes/no): ");
+        String confirm = input.nextLine();
+        if (confirm.equalsIgnoreCase("yes")) {
+            if (file.delete()) {
+                System.out.println("File deleted successfully: " + fileName);
+                // Clear current file if it was open
+                if (fileName.equals(currentFileName)) {
+                    currentFileName = null;
+                    content = new StringBuilder();
+                }
+            } else {
+                System.out.println("Failed to delete file: " + fileName);
+            }
+        } else {
+            System.out.println("File deletion cancelled.");
+        }
+    }
 
-	 // Getter for content
+
+    // Getter for content
     public String getContent() {
         return content.toString();
     }
