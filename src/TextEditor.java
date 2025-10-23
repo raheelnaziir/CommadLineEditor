@@ -22,6 +22,7 @@ public class TextEditor extends EditorFeatures{
 		
 	}
 
+
 	@Override
 	public void openFile(String fileName) {
 		
@@ -120,8 +121,15 @@ public class TextEditor extends EditorFeatures{
             System.out.println("Error saving file: " + e.getMessage());
         }
 	}
-	
-	 // Getter for content 
+
+    public void deleteFile(String fileName) {
+        File file = new File(fileName);
+        if (!file.exists()) {
+            System.out.println("File not found: " + fileName);
+            return;
+        }
+
+	 // Getter for content
     public String getContent() {
         return content.toString();
     }
